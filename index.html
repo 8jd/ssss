@@ -1,0 +1,481 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="js/script.js"></script> 
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/scanlines.css">
+    
+<style>
+  body { 
+        visibility: hidden;
+        cursor: none;
+        overflow-y: hidden;
+        overflow-x: hidden;  
+    }
+    img {
+        width: 100%
+    }
+    hr {
+        border-top: 2px solid #fff 
+    }
+
+    * { 
+        cursor: none;
+
+
+    }
+
+     #cursor-arrow {
+        display: none;
+        position  : absolute;
+        z-index   : 9999999;
+        width     : 40px;
+        height    : 40px;
+        background: transparent url(images/normal.png) 0 0 no-repeat;
+        pointer-events: none;
+    }
+
+    #cursor-pointer {
+        display: none;
+        position  : absolute;
+        z-index   : 9999999;
+        width     : 40px;
+        height    : 40px;
+        background: transparent url(images/pointer.png) 0 0 no-repeat;
+        pointer-events: none;
+    }
+
+    #cursor-text {
+        display: none;
+        position  : absolute;
+        z-index   : 9999999;
+        width     : 40px;
+        height    : 40px;
+        background: transparent url(images/select.png) 0 0 no-repeat;
+        pointer-events: none;
+    }
+
+</style></head>
+
+<body class="w-screen h-[100%] crt" style="height: 100%;">
+    <div class="loading fixed w-screen h-screen container-fluid start-up" id="loader" role="main">
+        <div class="row" style="height:100%; width: 100vw; display: flex; justify-content: center; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); position: absolute;margin-right: 0px;margin-left: 0px;">
+            <div class="col-md-3">
+                <div class="jumbotron text-center"> 
+                    <h1><span class="badge badge-pill badge-info" style="background-color: yellow;">System</span></h1>
+                    <br>
+                    <p class="lead">Program has successfully loaded, please click the continue button below to load and proceed to the program.</p>
+                    <br>
+                    <a class="btn btn-lg btn-primary" onclick="loader" role="button">Continue »</a>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main hidden max-h-screen h-screen" id="main">
+        
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#"> 
+                            Home <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.roblox.com/users/4346213192/profile" target="_blank">
+                            roblox
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/axst" target="_blank">
+                            instagram
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a>
+                            15:00
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Guest <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">lain</a></li>
+
+                           
+                        </ul>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <pre>                    
+𝙻𝚎𝚝'𝚜 𝚊𝚕𝚕 𝚕𝚘𝚟𝚎 𝙻𝚊𝚒𝚗
+𝙻𝚎𝚝'𝚜 𝚊𝚕𝚕 𝚕𝚘𝚟𝚎 𝙻𝚊𝚒𝚗
+𝙻𝚎𝚝'𝚜 𝚊𝚕𝚕 𝚕𝚘𝚟𝚎 𝙻𝚊𝚒𝚗
+𝙻𝚎𝚝'𝚜 𝚊𝚕𝚕 𝚕𝚘𝚟𝚎 𝙻𝚊𝚒𝚗
+𝙻𝚎𝚝'𝚜 𝚊𝚕𝚕 𝚕𝚘𝚟𝚎 𝙻𝚊𝚒𝚗
+			        𝙻𝚊𝚒𝚗
+			         𝙻𝚊𝚒𝚗
+			          𝙻𝚊𝚒𝚗
+			           𝙻𝚊𝚒𝚗
+			            𝙻𝚊𝚒𝚗
+			             𝙻𝚊𝚒𝚗
+			              𝙻𝚊𝚒𝚗
+			               𝙻𝚊𝚒𝚗
+				        𝙻𝚊𝚒𝚗 
+                    </pre>
+                
+
+                    <div class="panel bg-transparent col md-3 font-bold overflow-hidden">
+                        <pre style="overflow: hidden; text-align: center; justify-content: center; align-items: center; right: 50%;"><strong>
+⠀⠀⠀⠀⠀⣀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡢⡀⠀⠀⠀⠀
+⠀⠀⠀⢄⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀
+⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀
+⠀⢨⣿⡿⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠀⠀
+⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢀⠀
+⢈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⠀
+⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⡇⠀⢸⢹⣿⣿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡧⠀
+⠈⣿⣿⣿⣿⣿⠧⠯⠟⠿⠧⠀⠀⠀⠸⠿⠿⢼⣿⠿⢿⣟⣿⣿⣿⣿⣿⣇⠀
+⠀⣿⣿⣿⣿⡿⢰⠺⣿⠉⠂⠀⠀⠀⠀⠀⠀⠚⣷⣶⠢⡀⢿⣿⣿⣿⡿⠉⠀
+⢐⢻⣿⣏⠙⠇⠈⠒⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠝⠻⠥⠁⢰⡌⠹⠋⡀⡀⠀
+⠀⠉⢻⣿⣦⡀⠐⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠆⠄⠸⢃⣰⡀⠱⠀⠀
+⠀⠀⠀⢹⣿⣿⡄⠀⠀⠀⠀⠀⠀⡀⡀⠀⠀⠀⠀⠀⠀⢀⣶⣿⣿⡟⠁⠀⠀
+⠀⠀⠘⣸⢿⣿⣿⣦⡀⠀⠀⠀⠀⠠⠄⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣇⠀⠀⠀
+⠀⠀⠀⠉⠞⠿⠛⠿⠿⢶⣄⠀⠀⠀⠀⠀⠀⠀⣠⡾⠿⠿⣿⣿⡿⠅⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣶⣤⣤⣤⡴⠊⠀⡧⠀⠀⣿⣿⣇⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣀⡞⠛⠿⣿⣿⠟⠋⠀⠀⠀⠱⣀⠈⣿⣿⡁⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢠⡠⠔⠋⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠙⠲⣿⣧⠀⠀⠀⠀⠀
+⢀⠔⠒⠀⠉⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡿⠀⠉⠚⠤⢔ ⠀⠀⠀⠀⠀⠀
+                        </strong></pre>
+                        </div>
+                        <audio src="/music/affiliations.ogg" hidden=""></audio>
+                        <div class="music-player col md-3">
+                       
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Currently Playing</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>Title: <strong class="Title">N/A</strong></p>
+                                    <p>Artist: <strong class="Artist">N/A</strong></p>
+                                </div>
+                                <div class="progress progress-info progress-striped" style="background-color: #fff;">
+                                    <div class="progress-bar" style="width: 10%; height:auto;"></div>
+                                </div>
+                                <div class="panel-footer">
+                                    <button class="btn btn-primary" id="prevBtn">Prev</button>
+                                    <button class="btn btn-primary" id="playPauseBtn">Play</button>
+                                    <button class="btn btn-primary" id="skipBtn">Next</button>
+                                </div>
+                        </div>
+
+                </div>
+                                
+                </div>
+                <div class="col-md-9">
+                    
+                   
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href=""> lain </a>
+                        </li>
+                        <li class="active">
+                            User Profile
+                        </li>
+                    </ol>
+                    
+                   
+                    <div class="alert alert-danger" role="alert">
+                        <strong>ERROR -</strong> Could not authenticate user. Only partial data has been loaded.
+                    </div>
+                    
+
+                    
+                    <div class="row" style="height: 100%;">
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-he 456666ading">
+                                    <h3 class="panel-title">user profile</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>username: <strong>lain</strong></p>
+                                    <p>roblox: <strong><a href="https://www.roblox.com/users/4346213192/profile" target="_blank">rblx</a></strong></p>
+                                    <p>instagram: <strong><a href="https://instagram.com/axst" target="_blank">ig</a></strong></p>
+                                </div>
+                            </div>
+                        </div>
+                       
+
+                        <div class="col-md-8">
+                            <div class="alert alert-secondary" role="alert" style="height: fit-content;">
+                                <h4 class="alert-heading"><span class="badge badge-pill badge-info" style="background-color: yellow;">System Announcement</span></h4> 
+                                <p>
+                                    #exile
+                                </p>
+                                <br>
+                                <hr>
+                                <p class="mb-auto text-right">Updated On: 07/2/25 03:30:00 EST</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="height: 100%;">
+                        
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container" style="margin-left: 0; margin-right: 0; width: fit-content; margin-top: 10px; margin-bottom: 10px;">
+                                <span class="badge badge-pill badge-info" style="background-color: grey; margin-bottom: 5px;">About Me</span>
+                                <p class="lead">
+                                    okay, kid im done. i doubt you even have basic knowlege of hacking. i doul boot linux so i can run my scripts. you made a big mistake of replying to my comment without using a proxy, because i'm already tracking youre ip. since ur so hacking iliterate, that means internet protocol. once i find your ip i can easily install a backdoor trojan into your pc, not to mention your email will be in my hands. dont even bother turning off your pc, because i can rout malware into your power system so i can turn your excuse of a computer on at any time. it might be a good time to cancel your credit card since ill have that too. if i wanted i could release your home information onto my secure irc chat and maybe if your unlucky someone will come knocking at your door. id highly suggest you take your little comment about me back since i am no script kiddie. i know java and c++ fluently and make my own scripts and source code. because im a nice guy ill give you a chance to take it back. you have 4 hours in unix time, clock is ticking. ill let you know when the time is up by sending you an email to [redacted] which I aquired with a java program i just wrote. see you then :)
+                                </p>
+                            </div>
+                        </div><br>
+                    </div>
+                   
+                    <div class="footer" style="top: 10vh;position: relative;">
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>© lain</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-right"></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        
+        <script data-cfasync="false" src="js/email-decode.min.js"></script><script>
+            const songs = [
+                {
+                    artist: 'Exodia',
+                    title: 'rayquaza ex',
+                    file: '/music/rqx.mp3'                                 
+                },   
+                {
+                    artist: 'sai nara',
+                    title: 'tone deaf+',
+                    file: '/music/ad.mp3'                                 
+                },   
+                {
+                    artist: 'Baby Smoove',
+                    title: 'Lethal Weapon',
+                    file: '/music/ww.mp3'
+                },                       
+           
+            ]
+
+            
+            const audio = document.querySelector('audio');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const skipBtn = document.getElementById('skipBtn');
+const prevBtn = document.getElementById('prevBtn');
+const artist = document.querySelector('.music-player .Artist');
+const title = document.querySelector('.music-player .Title');
+let currentSong = 0;
+let isPlaying = false;
+
+
+audio.volume = 0.3 
+audio.src = songs[currentSong].file;
+isPlaying = true; 
+
+playPauseBtn.innerText = 'Pause'; 
+
+
+playPauseBtn.addEventListener('click', () => {
+    if (isPlaying) {
+        audio.pause();
+        playPauseBtn.innerText = 'Play'; 
+    } else {
+        audio.play();
+        playPauseBtn.innerText = 'Pause'; 
+    }
+    isPlaying = !isPlaying; 
+});
+
+
+skipBtn.addEventListener('click', () => {
+    currentSong++;
+    if (currentSong >= songs.length) {
+        currentSong = 0; 
+    }
+    audio.src = songs[currentSong].file;
+    audio.play();
+    artist.innerText = songs[currentSong].artist;
+    title.innerText = songs[currentSong].title;
+    isPlaying = true; 
+    playPauseBtn.innerText = 'Pause'; 
+});
+
+prevBtn.addEventListener('click', () => {
+    currentSong--;
+    if (currentSong < 0) {
+        currentSong = songs.length - 1; 
+    }
+    audio.src = songs[currentSong].file;
+    audio.play();
+    artist.innerText = songs[currentSong].artist;
+    title.innerText = songs[currentSong].title;
+    isPlaying = true; 
+    playPauseBtn.innerText = 'Pause'; 
+});
+
+
+audio.addEventListener('ended', () => {
+    currentSong++;
+    if (currentSong >= songs.length) {
+        currentSong = 0; 
+    }
+    audio.src = songs[currentSong].file;
+    audio.play();
+    artist.innerText = songs[currentSong].artist;
+    title.innerText = songs[currentSong].title;
+});
+
+
+           
+            const loader = document.getElementById('loader')
+            const main = document.getElementById('main')
+
+            loader.addEventListener('click', () => {
+                loader.classList.add('hidden')
+                main.classList.remove('hidden')
+                document.body.style.visibility = 'visible'
+
+                
+                audio.src = songs[currentSong].file
+                audio.play()
+                artist.innerText = songs[currentSong].artist
+                title.innerText = songs[currentSong].title
+            })
+
+            
+            const moved = false
+            document.addEventListener('mousemove', () => {
+                if (!moved) {
+                    document.querySelector('#cursor-arrow').style.display = 'block'
+                    moved = true
+                }
+            })
+
+           
+            audio.addEventListener('timeupdate', () => {
+                const progress = (audio.currentTime / audio.duration) * 100
+                document.querySelector('.progress-bar').style.width = `${progress}%`
+            })
+
+            
+
+            document.addEventListener('mousemove', e => {
+                document.querySelector('#cursor-arrow').style.left = e.pageX + 'px'
+                document.querySelector('#cursor-arrow').style.top = e.pageY + 'px'
+                document.querySelector('#cursor-pointer').style.left = e.pageX + 'px'
+                document.querySelector('#cursor-pointer').style.top = e.pageY + 'px'
+                document.querySelector('#cursor-text').style.left = e.pageX + 'px'
+                document.querySelector('#cursor-text').style.top = e.pageY + 'px'
+            })
+
+
+            
+            document.querySelectorAll('button, a').forEach(el => {
+                el.addEventListener('mouseover', () => {
+                    
+                    document.querySelector('#cursor-pointer').style.display = 'block'
+                    document.querySelector('#cursor-arrow').style.display = 'none'
+                    
+
+
+                })
+                el.addEventListener('mouseout', () => {
+                    
+                    document.querySelector('#cursor-pointer').style.display = 'none'
+                    document.querySelector('#cursor-arrow').style.display = 'block'
+                })
+            })
+
+            
+            document.querySelectorAll('input, textarea').forEach(el => {
+                el.addEventListener('mouseover', () => {
+                   
+                    document.querySelector('#cursor-text').style.display = 'block'
+                    document.querySelector('#cursor-arrow').style.display = 'none'
+                })
+                el.addEventListener('mouseout', () => {
+                    
+                    document.querySelector('#cursor-text').style.display = 'none'
+                    document.querySelector('#cursor-arrow').style.display = 'block'
+                })
+            })
+
+           
+            document.addEventListener('mousemove', () => {
+                if (document.querySelector('#cursor-pointer').style.display === 'none' && document.querySelector('#cursor-text').style.display === 'none') {
+                    document.querySelector('#cursor-arrow').style.display = 'block'
+                }
+            })
+            
+        </script>
+ <script> document.addEventListener('contextmenu', function(e){
+    e.preventDefault();
+    });
+
+    document.onkeydown = function(e) {
+        if(event.keyCode == 123) {
+           return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+           return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+           return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+           return false;
+        }
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+           return false;
+        }
+          if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {
+           return false;
+        }
+          if(e.keyCode == 'F12'.charCodeAt(0)) {
+           return false;
+        }
+      }
+      </script>
+       <script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+       <script src="js/jquery-3.4.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </div>
+    <div id="cursor-arrow"></div>
+    <div id="cursor-pointer"></div>
+    <div id="cursor-text"></div>
+
+
+</body></html>
